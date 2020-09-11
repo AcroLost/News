@@ -3,21 +3,7 @@ import { View, Text, Image, ScrollView, StyleSheet } from 'react-native';
 
 const News = ({ route }) => {
 
-  const [picture, setPicture] = useState();
-  const [fullText, setFullText] = useState();
-  const [title, setTitle] = useState();
-  const [subTitle, setSubTitle] = useState();
-
-  useEffect(() => {
-    if (route.params?.item) {
-      const { picture, fulltext, subtitle, title } = route.params.item;
-
-      setPicture(picture);
-      setFullText(fulltext);
-      setTitle(title);
-      setSubTitle(subtitle);
-    }
-  }, []);
+  const { picture, title, subtitle, fulltext } = route.params.item
 
   return (
     <View style={styles.main}>
@@ -26,8 +12,8 @@ const News = ({ route }) => {
         <View>
           <Image source={{ uri: picture }} style={styles.newsImage} />
           <Text style={styles.newsTitle}>{title}</Text>
-          <Text style={styles.newsSub}>{subTitle}</Text>
-          <Text style={styles.newsDescr}>{fullText}</Text>
+          <Text style={styles.newsSub}>{subtitle}</Text>
+          <Text style={styles.newsDescr}>{fulltext}</Text>
           <View style={styles.timeWrapper}>
             <Text style={styles.time}>12:00</Text>
             <Text style={styles.time}>12.09.20</Text>

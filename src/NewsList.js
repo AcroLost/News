@@ -10,8 +10,8 @@ const NewsList = ({ navigation }) => {
     getNews()
       .then((res) => {
         setNewsElements(res.data.news);
-        console.log(res.data.news);
       }).catch((e) => {
+
         alert(e);
       })
   }, []);
